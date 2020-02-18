@@ -1,6 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'index.html' %}
+{% load staticfiles %}
 
+{% block css %}
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="{% static '/img/apple-icon.png' %}">
+<link rel="icon" type="image/png" href="{% static '/img/favicon.ico' %}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>SistemaG - Un sistema de gestion de Usuarios</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+<!--     Fonts and icons     -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+<!-- CSS Files -->
+<link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" />
+<link href="{% static '/css/light-bootstrap-dashboard.css' %}" rel="stylesheet" />
+
+<link href="{% static '/css/demo.css' %}" rel="stylesheet" />
+<link href="{% static '/css/lumino.min.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block main %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +29,12 @@
 </head>
 
 <body>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ cliente_form.as_p }}
-        <button type="submit">Crear</button>
-    </form>
+    <div class="col-md-8">
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ cliente_form.as_p }}
+            <button type="submit">Crear</button>
+        </form>
+    </div>
 </body>
 
-</html>
+{% endblock main %}
